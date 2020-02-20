@@ -163,7 +163,7 @@
 
       // If using typeahead, once the tag has been added, clear the typeahead value so it does not stick around in the input.
       if ($('.typeahead, .twitter-typeahead', self.$container).length) {
-        self.$input.typeahead('val', '');
+        self.$input.val('');
       }
 
       if (this.isInit) {
@@ -332,9 +332,6 @@
           },
           matcher: function (text) {
             return (text.toLowerCase().indexOf(this.query.trim().toLowerCase()) !== -1);
-          },
-          sorter: function (texts) {
-            return texts.sort();
           },
           highlighter: function (text) {
             var regex = new RegExp( '(' + this.query + ')', 'gi' );
