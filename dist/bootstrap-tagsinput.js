@@ -1,5 +1,5 @@
 /*
- * bootstrap-tagsinput v0.8.0
+ * bootstrap-tagsinput v0.8.1
  * 
  */
 
@@ -303,6 +303,9 @@
         makeOptionFunction(typeahead, 'source');
 
         self.$input.typeahead($.extend({}, typeahead, {
+          changeInputOnSelect: false,
+          changeInputOnMove: false,
+          selectOnBlur: false,
           source: function (query, process) {
             function processItems(items) {
               var texts = [];
@@ -331,7 +334,7 @@
                .then(processItems);
             }
           },
-          updater: function (text) {
+          afterSelect: function (text) {
             self.add(this.map[text]);
             return this.map[text];
           },
